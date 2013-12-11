@@ -1,0 +1,326 @@
+{% extends "basic/layout.html" %}
+
+{% block doctype %}
+	<!DOCTYPE html>
+{% endblock %}
+
+{% block extrahead %}
+	<script type="text/javascript" src="_static/less-1.3.3.min.js"></script>
+	<script type="text/javascript" src="_static/f4183b5c3b25.js"></script>
+	<script type="text/javascript" charset="utf-8">
+	  /*
+		Added so that we can append Horizon scoped JS events to
+		the DOM load events without running in to the "horizon"
+		name-space not currently being defined since we load the
+		scripts at the bottom of the page.
+	  */
+	  var addHorizonLoadEvent = function(func) {
+		var old_onload = window.onload;
+
+		if (typeof window.onload != 'function') {
+		  window.onload = func;
+		} else {
+		  window.onload = function() {
+			old_onload();
+			func();
+		  }
+		}
+	  }
+	</script>
+
+     <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-34483848-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+{% endblock %}
+    
+{% block linktags %}
+	<link rel="stylesheet/less" type="text/css" media="all" href="_static/osdc.less">
+	<link rel="shortcut icon" href="_static/favicon.ico"/>
+{% endblock %}
+
+
+{% block document %}    
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+        
+        
+        <li id="nav-">
+        
+          
+          <a href="/" id="nav-overview-a"><img src="_static/logo_sm.png"></a>
+          
+        </li>
+        
+        
+        <li id="nav-console">
+        
+          
+          <a href="/console">Console</a>
+          
+        </li>
+        
+        
+        <li id="nav-apply">
+        
+          
+          <a href="/apply">Apply</a>
+          
+        </li>
+        
+        
+        <li id="nav-publicdata">
+        
+          
+          <a href="/publicdata">Public Data</a>
+          
+        </li>
+        
+        
+        <li id="nav-systems">
+        
+          
+          <a href="/systems">Systems</a>
+          
+        </li>
+        
+        
+        <li id="nav-projects">
+        
+          
+          <a href="/projects">Projects</a>
+          
+        </li>
+        
+        
+        <li id="nav-status">
+        
+          
+          <a href="/status">Status</a>
+          
+        </li>
+        
+        
+        <li id="nav-support">
+        
+          
+          <a href="/support">Support</a>
+          
+        </li>
+        
+        
+        <li id="nav-news">
+        
+          
+          <a href="/news">News</a>
+          
+        </li>
+        
+        
+        <li id="nav-pire">
+        
+          
+          <a href="/pire">PIRE</a>
+          
+        </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+
+    <div class="wrapper">
+      
+
+<div class='container'>
+    <div class="row row-header">
+		<div class="span12">
+            
+            
+			<header class="jumbotron subhead">
+			  <h1>OSDC Documentation and Support</h1>
+			<p>
+			  Below are instructions for using the OSDC. Please contact our support team if you have any further questions. 
+			</p>
+
+		</div>
+</header>
+
+          </div>
+            
+<div class="container">
+	<!--
+	<div class="accordion" id="accordion2">
+		<div class="accordion-group">
+			<div class="accordion-heading">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+			Contact the OSDC Support Team
+			</a>
+			</div>
+			<div id="collapseOne" class="accordion-body collapse">
+				<div class="accordion-inner">
+				  <form action="/support/" method="post" class="form-horizontal"><div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='iBufIqS9iAwflFmgdYUtrFOV6POkXwfP' /></div>
+				  <fieldset>    
+					<div class="control-group ">  
+					  <label class="control-label" for="id_sender">Your Email</label>
+					  <div class="controls">
+						<input type="text" class="input-xlarge" id="id_sender" name="sender">
+						<span class="help-inline"></span>
+					  </div>
+					</div>
+					<div class="control-group">
+					  <label class="control-label" for="id_subject">Subject</label>
+					  <div class="controls">
+						<input type="text" class="input-xlarge" id="id_subject" name="subject">
+					  </div>
+					</div>
+					<div class="control-group">
+					  <label class="control-label" for="id_message">Message</label>
+					  <div class="controls">
+						<textarea id="id_message" rows="10" cols="40" name="message" class="span5"></textarea>
+					  </div>
+					</div>
+					<div class="control-group">
+					  <div class="controls">
+						<button type="submit" class="btn btn-primary">Send Message</button>
+					  </div>
+					</div>
+	  
+				  </fieldset>
+				</form>
+				</div>  end .accordion-inner
+			</div>  end #collapseOne, .accordion-body, .collapse
+		</div>  end .accordion-group 
+	</div> end #accordion, .accordion2 
+	-->
+</div>
+
+        </div>
+        <div class='row'>
+          <div class='span12'>
+            
+<div class="messages">
+
+</div>
+
+          </div>
+        </div>
+      </div>
+      
+
+      <div id="push">
+        <!-- Empty div to keep footer at bottom of viewport-->
+      </div>
+    </div>
+
+    {% block footer %}
+    <div id="main-footer">
+      <div class="modal-footer">
+        <div class="container">
+           <span>A resource of the</span>
+    <a href="http://opencloudconsortium.org/"><img style="vertical-align:middle" src="_static/occ_logo_sm.png" alt="Open Cloud Consortium"></a> <span>and made possible by our <a href="/sponsors"> sponsors.</a></span>
+
+        </div>
+      </div>
+    
+    </div>
+    {% endblock %}
+
+    
+
+
+<!--
+<script type="text/javascript" src="/i18n/js/horizon/"></script>
+<script type="text/javascript" src="/static/dashboard/js/3396b38e5e1e.js"></script>
+-->
+
+<script type="text/html" id="modal_template">
+
+<div class="modal hide">
+  <div class='modal-header'>
+    <a class='close' data-dismiss='modal'>&times;</a>
+    <h3>{{title}}</h3>
+  </div>
+  <div class='modal-body'>
+    {{body}}
+  </div>
+  <div class='modal-footer'>
+    <a href='#' class='btn btn-primary'>{{confirm}}</a>
+    <a href='#' class='btn cancel' data-dismiss='modal'>{{cancel}}</a>
+  </div>
+</div>
+
+</script>
+
+<script type="text/html" id="empty_row_template">
+
+<tr class="odd empty"><td colspan="{{colspan}}">No items to display.</td></tr>
+
+</script>
+
+<script type="text/html" id="alert_message_template">
+
+<div class="alert alert-block fade in alert-{{type}}">
+  <a class="close" data-dismiss="alert" href="#">&times;</a>
+  <p><strong>{{type_capitalized}}: </strong>{{message}}</p>
+</div>
+
+</script>
+
+<script type="text/html" id="spinner-modal">
+
+<div class="modal loading hide">
+  <p>{{text}}&hellip;</p>
+</div>
+
+</script>
+
+<script type="text/html" id="project_user_template">
+
+<ul class="nav nav-pills btn-group">
+  <li class="member" data-user-id="{{user_id}}">
+    <span class="user_name">{{user_name}}</span>
+  </li>
+  <li class="active"><a class="btn btn-primary" href="#add_remove">{{text}}</a></li>
+  <li class="dropdown role_options">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      <span class="selected_role">{{default_role}}</span>
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu role_dropdown clearfix">
+      {{#roles}}
+      <li data-role-id="{{role_id}}">{{role_name}}</li>
+      {{/roles}}
+    </ul>
+  </li>
+</ul>
+
+</script>
+
+
+
+
+<script type='text/javascript' charset='utf-8'>
+  // Call init on DOM ready.
+  $(document).ready(horizon.init);
+</script>
+
+<script type="text/javascript">
+$("#nav-support").attr('class', 'active')
+</script>
+
+    <div id="modal_wrapper"></div>
+{% endblock document %}
