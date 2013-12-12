@@ -1,0 +1,160 @@
+{% extends "!layout.html" %}
+
+{% block doctype %}
+	<!DOCTYPE html>
+{% endblock %}
+
+{% block extrahead %}
+	<script type="text/javascript" src="../_static/less-1.3.3.min.js"></script>
+	<script type="text/javascript" src="../_static/f4183b5c3b25.js"></script>
+	<script type="text/javascript" charset="utf-8">
+	  /*
+		Added so that we can append Horizon scoped JS events to
+		the DOM load events without running in to the "horizon"
+		name-space not currently being defined since we load the
+		scripts at the bottom of the page.
+	  */
+	  var addHorizonLoadEvent = function(func) {
+		var old_onload = window.onload;
+
+		if (typeof window.onload != 'function') {
+		  window.onload = func;
+		} else {
+		  window.onload = function() {
+			old_onload();
+			func();
+		  }
+		}
+	  }
+	</script>
+
+     <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-34483848-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+{% endblock %}
+    
+{% block linktags %}
+	<link rel="stylesheet/less" type="text/css" media="all" href="../_static/agogo.css_t">
+	<link rel="shortcut icon" href="../_static/favicon.ico"/>
+{% endblock %}
+
+{% block nav %}
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+        
+        
+        <li id="nav-">
+        
+          
+          <a href="http://www.opensciencedatacloud.org/" id="nav-overview-a"><img src="../_static/logo_sm.png"></a>
+          
+        </li>
+        
+        
+        <li id="nav-console">
+        
+          
+          <a href="http://www.opensciencedatacloud.org/console">Console</a>
+          
+        </li>
+        
+        
+        <li id="nav-apply">
+        
+          
+          <a href="http://www.opensciencedatacloud.org/apply">Apply</a>
+          
+        </li>
+        
+        
+        <li id="nav-publicdata">
+        
+          
+          <a href="http://www.opensciencedatacloud.org/publicdata">Public Data</a>
+          
+        </li>
+        
+        
+        <li id="nav-systems">
+        
+          
+          <a href="http://www.opensciencedatacloud.org/systems">Systems</a>
+          
+        </li>
+        
+        
+        <li id="nav-projects">
+        
+          
+          <a href="http://www.opensciencedatacloud.org/projects">Projects</a>
+          
+        </li>
+        
+        
+        <li id="nav-status">
+        
+          
+          <a href="http://www.opensciencedatacloud.org/status">Status</a>
+          
+        </li>
+        
+        
+        <li id="nav-support">
+        
+          
+          <a href="http://www.opensciencedatacloud.org/support">Support</a>
+          
+        </li>
+        
+        
+        <li id="nav-news">
+        
+          
+          <a href="http://www.opensciencedatacloud.org/news">News</a>
+          
+        </li>
+        
+        
+        <li id="nav-pire">
+        
+          
+          <a href="http://pire.opensciencedatacloud.org/">PIRE</a>
+          
+        </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<div id="main-footer">
+  <div class="modal-footer">
+	<div class="container">
+	   <span>A resource of the</span>
+<a href="http://opencloudconsortium.org/"><img style="vertical-align:middle" src="_static/occ_logo_sm.png" alt="Open Cloud Consortium"></a> <span>and made possible by our <a href="/sponsors"> sponsors.</a></span>
+
+	</div>
+  </div>
+
+</div>
+
+<script>
+  $(document).ready(function(){
+    $("#nav-support").attr("class", "active");
+  });
+</script>
+{% endblock %}
