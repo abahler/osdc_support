@@ -107,7 +107,8 @@ html_theme = 'tukeytheme'
 # Originally an empty list, commented out.
 html_theme_path = ['tukeytheme']
 
-html_style = 'agogo.css'
+# Stylesheet to use for HTML pages. Must exist in path specified for html_static_path
+html_style = 'agogo.css_t.css'
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
